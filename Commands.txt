@@ -1,0 +1,17 @@
+Create React App command:
+1) creat-react-app "appName"
+
+Git Bash commands:
+1) git branch - print all branches
+2) git branch branch0 - create branch0
+3) git checkout branch0 - move to branch0
+4) git add . - add all modifications to current state of the app
+5) git commit - create commit with all modifications added
+6) git push - push last commit
+7) git merge branchX - merge current branch with branchX
+
+Things you need to install with npm:
+1) npm install bootstrap
+2) npm install react-router-dom
+3) npm install redux react-redux redux-thunk
+4) npm install axios
