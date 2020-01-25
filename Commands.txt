@@ -14,4 +14,4 @@ Things you need to install with npm:
 1) npm install bootstrap
 2) npm install react-router-dom
 3) npm install redux react-redux redux-thunk
-4) npm install axios
+4) npm install axioss
