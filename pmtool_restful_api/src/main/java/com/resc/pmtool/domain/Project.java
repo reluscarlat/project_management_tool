@@ -26,9 +26,24 @@ public class Project {
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date endDate;
     @JsonFormat(pattern = "yyyy-mm-dd")
+    @Column(updatable = false)
     private Date createdAt;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updatedAt;
+
+//    mappedBy = "project" (Name of the attribute on the Backlog class side)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
+    private Backlog backlog;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = new Date();
+    }
 
     public Project() {
     }
@@ -97,14 +112,13 @@ public class Project {
         this.updatedAt = updatedAt;
     }
 
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = new Date();
+    public Backlog getBacklog() {
+        return backlog;
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = new Date();
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
     }
+
 
 }
