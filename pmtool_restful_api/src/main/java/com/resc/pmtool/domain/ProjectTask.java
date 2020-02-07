@@ -12,7 +12,7 @@ public class ProjectTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(updatable =  false)
+    @Column(updatable =  false, unique = true)
     private String projectSequence;
     @NotBlank(message = "Please include a project summary")
     private String summary;
@@ -30,7 +30,7 @@ public class ProjectTask {
     //to refresh his projectTask list if one projectTask is modified / deleted)
     //  @JoinColumn(name = "backlog_id") set the name of the column which represents
     //the foreign key component of the child table(ProjectTask).
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "backlog_id", updatable = false, nullable = false)
     @JsonIgnore
     private Backlog backlog;

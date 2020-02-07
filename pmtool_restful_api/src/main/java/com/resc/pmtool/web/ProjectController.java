@@ -25,7 +25,7 @@ public class ProjectController {
     @PostMapping("")
     private ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult bindingResult) {
 
-        ResponseEntity<?> responseEntity = mapValidationErrorsService.mapErrorsService(project, bindingResult);
+        ResponseEntity<?> responseEntity = mapValidationErrorsService.mapErrorsService(bindingResult);
         if(responseEntity != null) return responseEntity;
 
         projectService.saveOrUpdateProject(project);
@@ -52,9 +52,7 @@ public class ProjectController {
 
     @DeleteMapping("/{projectIdentifier}")
     private ResponseEntity<?> deleteProjectByIdentifier(@PathVariable String projectIdentifier) {
-
         projectService.deleteProjectByIdentifier(projectIdentifier.toUpperCase());
         return new ResponseEntity<String>("Project with ID '" + projectIdentifier.toUpperCase() + "' was deleted.", HttpStatus.OK);
-
     }
 }

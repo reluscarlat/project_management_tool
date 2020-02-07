@@ -1,7 +1,6 @@
 package com.resc.pmtool.exceptions;
 
 public class ProjectIdExceptionResponse {
-
     private String projectIdentifier;
 
     public ProjectIdExceptionResponse(String projectIdentifier) {

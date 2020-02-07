@@ -1,6 +1,5 @@
 package com.resc.pmtool.services;
 
-import com.resc.pmtool.domain.Project;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ import java.util.List;
 @Service
 public class MapValidationErrorsService {
 
-    public ResponseEntity<?> mapErrorsService(Project project, BindingResult bindingResult) {
+    public ResponseEntity<?> mapErrorsService(BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()) {
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
