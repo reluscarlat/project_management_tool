@@ -52,6 +52,9 @@ class AddProject extends Component {
               <h5 className="display-4 text-center">Create Project form</h5>
               <hr />
               <form onSubmit={this.onSubmit}>
+                {errors.summary && (
+                  <div className="invalid-feedback">{errors.summary}</div>
+                )}
                 <div className="form-group">
                   <input
                     type="text"
@@ -63,10 +66,8 @@ class AddProject extends Component {
                     value={this.state.projectName}
                     onChange={this.onChange}
                   />
-                  {errors.projectName && (
-                    <div className="invalid-feedback">{errors.projectName}</div>
-                  )}
                 </div>
+
                 <div className="form-group">
                   <input
                     type="text"
