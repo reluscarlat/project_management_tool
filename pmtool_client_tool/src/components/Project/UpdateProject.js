@@ -43,7 +43,6 @@ class UpdateProject extends Component {
     }
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
-      console.log(this.state.errors);
     }
   }
 

@@ -24,8 +24,8 @@ export default function(state = initialState, action) {
     case DELETE_PROJECT_TASK:
       return {
         ...state,
-        project_tasks: this.state.project_tasks.filter(
-          task => task.project_sequence !== action.payload
+        project_tasks: state.project_tasks.filter(
+          task => task.projectSequence !== action.payload
         )
       };
     default:

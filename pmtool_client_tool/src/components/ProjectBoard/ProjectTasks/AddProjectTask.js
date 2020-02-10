@@ -16,11 +16,11 @@ class AddProjectTask extends Component {
       dueDate: "",
       errors: {}
     };
-    this.onchange = this.onchange.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onchange(e) {
+  onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -65,7 +65,7 @@ class AddProjectTask extends Component {
                     })}
                     name="summary"
                     placeholder="Project Task summary"
-                    onChange={this.onchange}
+                    onChange={this.onChange}
                   />
                   {errors.summary && (
                     <div className="invalid-feedback">{errors.summary}</div>
@@ -76,7 +76,7 @@ class AddProjectTask extends Component {
                     className="form-control form-control-lg"
                     placeholder="Acceptance Criteria"
                     name="acceptanceCriteria"
-                    onChange={this.onchange}
+                    onChange={this.onChange}
                   ></textarea>
                 </div>
                 <h6>Due Date</h6>
@@ -85,14 +85,14 @@ class AddProjectTask extends Component {
                     type="date"
                     className="form-control form-control-lg"
                     name="dueDate"
-                    onChange={this.onchange}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div className="form-group">
                   <select
                     className="form-control form-control-lg"
                     name="priority"
-                    onChange={this.onchange}
+                    onChange={this.onChange}
                   >
                     <option value={0}>Select Priority</option>
                     <option value={1}>High</option>
@@ -105,7 +105,7 @@ class AddProjectTask extends Component {
                   <select
                     className="form-control form-control-lg"
                     name="status"
-                    onChange={this.onchange}
+                    onChange={this.onChange}
                   >
                     <option value="">Select Status</option>
                     <option value="TO_DO">TO DO</option>
