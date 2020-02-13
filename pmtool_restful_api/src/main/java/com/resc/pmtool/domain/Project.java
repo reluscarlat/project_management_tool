@@ -37,11 +37,12 @@ public class Project {
     @JsonIgnore
     private Backlog backlog;
 
+    //    @Column(updatable = false, nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private User user;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @Column(updatable = false, nullable = false)
-//    @JsonIgnore
-//    private User user;
+    private String projectLeader;
 
     @PrePersist
     protected void onCreate() {
@@ -128,5 +129,19 @@ public class Project {
         this.backlog = backlog;
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getProjectLeader() {
+        return projectLeader;
+    }
+
+    public void setProjectLeader(String projectLeader) {
+        this.projectLeader = projectLeader;
+    }
 }

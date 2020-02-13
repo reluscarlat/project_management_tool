@@ -31,13 +31,13 @@ public class User implements UserDetails {
     private Date createdAt;
     private Date updatedAt;
     // OneToMany with the Project
-//    @OneToMany(
-//            fetch = FetchType.EAGER,
-//            cascade = CascadeType.REFRESH,
-//            mappedBy = "user",
-//            orphanRemoval = true
-//    )
-//    List<Project> projects = new ArrayList<>();
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.REFRESH,
+            mappedBy = "user",
+            orphanRemoval = true
+    )
+    List<Project> projects = new ArrayList<>();
 
     public User() {
     }
@@ -98,6 +98,13 @@ public class User implements UserDetails {
         this.updatedAt = updatedAt;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
 
     @PrePersist
     protected void onCreate() {
