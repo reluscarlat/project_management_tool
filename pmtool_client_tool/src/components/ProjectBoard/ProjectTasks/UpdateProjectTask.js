@@ -37,20 +37,16 @@ class UpdateProjectTask extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    } else {
-      const { project_task } = nextProps;
-      this.setState({
-        id: project_task.id,
-        projectSequence: project_task.projectSequence,
-        summary: project_task.summary,
-        acceptanceCriteria: project_task.acceptanceCriteria,
-        status: project_task.status,
-        priority: project_task.priority,
-        dueDate: project_task.du
-      });
-    }
+    const { project_task } = nextProps;
+    this.setState({
+      id: project_task.id,
+      projectSequence: project_task.projectSequence,
+      summary: project_task.summary,
+      acceptanceCriteria: project_task.acceptanceCriteria,
+      status: project_task.status,
+      priority: project_task.priority,
+      dueDate: project_task.dueDate
+    });
   }
 
   onSubmit(e) {
@@ -89,7 +85,7 @@ class UpdateProjectTask extends Component {
               >
                 Back to Project Board
               </Link>
-              <h4 className="display-4 text-center">Add Project Task</h4>
+              <h4 className="display-4 text-center">Update Project Task</h4>
               <p className="lead text-center">Project Name + Project Code</p>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">

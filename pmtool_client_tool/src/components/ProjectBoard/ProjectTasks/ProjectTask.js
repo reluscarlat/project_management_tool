@@ -18,7 +18,6 @@ class ProjectTask extends Component {
       projectSequence,
       this.props.history
     );
-    console.log(projectIdentifier + "/ " + projectSequence);
   }
   render() {
     const { project_task } = this.props;

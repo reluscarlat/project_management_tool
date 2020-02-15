@@ -16,3 +16,4 @@ Things you need to install with npm:
 3) npm install redux react-redux redux-thunk
 4) npm install axios
 5) npm install classnames
+6) npm install jwt-decode
