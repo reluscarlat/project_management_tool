@@ -26,34 +26,47 @@ class ProjectBoard extends Component {
   render() {
     const { id } = this.props.match.params;
     const { project_tasks } = this.props.backlog;
-    let BoardContent;
+    let BoardContent, AddTaskButton;
     const createBoardContent = (project_tasks, errors) => {
-      if (errors.projectNotFound) {
-        return (
-          <div className="alert alert-danger text-center" role="alert">
-            {errors.projectNotFound}
-          </div>
-        );
-      } else {
-        if (project_tasks.length === 0) {
+      if (project_tasks.length < 1) {
+        if (errors.projectNotFound) {
+          return (
+            <div className="alert alert-danger text-center" role="alert">
+              {errors.projectNotFound}
+            </div>
+          );
+        } else if (errors.projectIdentifier) {
+          return (
+            <div className="alert alert-danger text-center" role="alert">
+              {errors.projectIdentifier}
+            </div>
+          );
+        } else {
           return (
             <div className="alert alert-info text-center" role="alert">
               No Tasks on this project board.
             </div>
           );
-        } else {
-          console.log(project_tasks);
-          return <Backlog key={id} project_tasks_prop={project_tasks} />;
         }
       }
+      return <Backlog key={id} project_tasks_prop={project_tasks} />;
     };
     BoardContent = createBoardContent(project_tasks, this.state.errors);
 
+    const createAddTaskButton = (id, errors) => {
+      if (!(errors.projectNotFound || errors.projectIdentifier)) {
+        return (
+          <Link to={`/addProjectTask/${id}`} className="btn btn-primary mb-3">
+            <i className="fas fa-plus-circle"> Create Project Task</i>
+          </Link>
+        );
+      }
+    };
+    AddTaskButton = createAddTaskButton(id, this.state.errors);
+
     return (
       <div className="container">
-        <Link to={`/addProjectTask/${id}`} className="btn btn-primary mb-3">
-          <i className="fas fa-plus-circle"> Create Project Task</i>
-        </Link>
+        {AddTaskButton}
         <br />
         <hr />
         {BoardContent}

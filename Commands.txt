@@ -17,3 +17,9 @@ Things you need to install with npm:
 4) npm install axios
 5) npm install classnames
 6) npm install jwt-decode
+
+Extensions in Chrome that you need to install
+1) React Developer Tools
+2) Redux DevTools
+
+*The application was tested only on the Chrome browser.
